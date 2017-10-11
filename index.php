@@ -26,6 +26,8 @@
 		<input type="submit" name="submit" value="Hash!">
 	</form>
 	<br>
+	<!-- Field to display error message if the form is left empty -->
+	<p id="error"></p>
 	<div class="hashes">
 		<?php 
 			foreach (hash_algos() as $i => $algo) { ?>
@@ -37,6 +39,20 @@
 		<?php	}
 		 ?>
 	</div>
+	
+	<script>
+        var form = document.querySelector("form");
+        form.addEventListener("submit",function(event)
+                              {
+            
+            var input = document.querySelector("input[name='input']");
+            if(!input.value.length)
+                {
+                    event.preventDefault();
+                    document.querySelector("#error").textContent = "Please enter valid string";
+                }
+        })
+    </script>
 </body>
 </html>
 
