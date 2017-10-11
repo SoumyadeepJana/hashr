@@ -46,7 +46,7 @@
                               {
             
             var input = document.querySelector("input[name='input']");
-            if(!input.value.length)
+            if(!input.value.trim().length)
                 {
                     event.preventDefault();
                     document.querySelector("#error").textContent = "Please enter valid string";
